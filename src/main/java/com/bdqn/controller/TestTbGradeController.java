@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * <p>
  *  前端控制器
@@ -25,12 +27,17 @@ public class TestTbGradeController {
 
     @PostMapping("/del")
     public boolean del(Integer id){
-//return true;
         return testTbGradeService.removeById(id);
     }
+
+
+    @PostMapping("/select")
+    public List<TestTbGrade> list(){
+        return testTbGradeService.list();
 
     @PostMapping("/addOne")
     public boolean addOne(TestTbGrade testTbGrade){
         return testTbGradeService.save(testTbGrade);
+
     }
 }
