@@ -1,6 +1,9 @@
 package com.bdqn.controller;
 
 
+import com.bdqn.service.TestTbGradeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-05-06
  */
 @RestController
-@RequestMapping("/bdqn/test-tb-grade")
 public class TestTbGradeController {
 
+    @Autowired
+    private TestTbGradeService testTbGradeService;
+
+    @PostMapping("/del")
+    public boolean del(Integer id){
+        return testTbGradeService.removeById(id);
+    }
 }
