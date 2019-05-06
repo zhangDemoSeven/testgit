@@ -3,8 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
 </head>
 <body>
+<div id="editform" class="easyui-dialog" title="MyDialog" data-options="iconCls:'icon-save',resizable:true,modal:false,closed:false,toolbar:'#buttons_edit'">
+    <!-- name属性必须写 -->
+    <form id="form" method="post">
+        <table>
+            <td><input class="easyui-validatebox" type="hidden" id="id" name="id"><span id="judge"></span></td>
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" id="user_name" name="user_code"><span id="judge"></span></td>
+            </tr>
+            <tr>
+                <td>科目</td>
+                <td><input  type="text" name="course" id="course"></td>
+            </tr>
 
+            <tr>
+                <td>成绩</td>
+                <td><input  type="text" name="score" id="score"></td>
+            </tr>
+        </table>
+        <input type="submit" id="btn" value="添加">
+        <input type="submit" value="返回" onclick="clos()">
+    </form>
+</div>
 </body>
+<script type="text/javascript">
+    $(function () {
+        $("#btn").click(function () {
+            var user_name = $("#user_name").val();
+            var course = $("#course").val();
+            var score = $("#score").val();
+            if(user_name == ""){
+                alert("请输入姓名");
+                return false;
+            }else{
+                $.ajax({
+                    url:"/addOne",
+                    dataType:"text",
+                    data:{"user_name":user_name,"course":course,"score":score},
+                    type:"POST",
+                    success:function (data) {
+                        alert("添加成功");
+                        window.location.href = "index.html";
+                    },
+                    error:function () {
+                        alert("系统错误");
+                    }
+                })
+            }
+            return false;
+        })
+    })
+</script>
 </html>
+
+
