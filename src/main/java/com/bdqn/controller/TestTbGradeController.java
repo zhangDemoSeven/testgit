@@ -4,7 +4,6 @@ package com.bdqn.controller;
 import com.bdqn.service.TestTbGradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +23,7 @@ public class TestTbGradeController {
 
     @PostMapping("/del")
     public boolean del(Integer id){
+//return true;
         return testTbGradeService.removeById(id);
     }
 }
