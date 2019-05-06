@@ -17,7 +17,7 @@ logging:
         bookmanage:
           mapper : debug
           #配置日志
-  config: classpath:logback-boot.xml
+#  config: classpath:logback-boot.xml
 #pagehelper:
 #  helperDialect: mysql
 ##  reasonable: true
