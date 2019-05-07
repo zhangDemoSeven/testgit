@@ -31,6 +31,16 @@ public class TestTbGradeController {
     }
 
 
+    @PostMapping("/updateById")
+    public boolean updateById(TestTbGrade testTbGrade){
+        return testTbGradeService.updateById(testTbGrade);
+    }
+
+    @PostMapping("/getById")
+    public TestTbGrade getById(Integer id){
+        return testTbGradeService.getById(id);
+
+
     @PostMapping("/select")
     public List<TestTbGrade> list(){
         return testTbGradeService.list();
@@ -38,6 +48,5 @@ public class TestTbGradeController {
     @PostMapping("/addOne")
     public boolean addOne(TestTbGrade testTbGrade){
         return testTbGradeService.save(testTbGrade);
-
     }
 }
