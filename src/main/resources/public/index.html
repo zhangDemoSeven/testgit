@@ -48,7 +48,7 @@
                     var td2 = $("<td>" + data[i].userName + "</td>");
                     var td3 = $("<td>" + data[i].course+ "</td>");
                     var td4 = $("<td>" + data[i].score + "</td>");
-                    var td5 = $("<td><button href='javascript:void(0)' onclick='updInfo(" + data[i].id + ")'>修改</button>   <button href='javascript:void(0)' onclick='del(this)'>删除</button></td>");
+                    var td5 = $("<td><button onclick='updInfo(" + data[i].id + ")'>修改</button>   <button onclick='del(this)'>删除</button></td>");
                     tr.append(td1);
                     tr.append(td2);
                     tr.append(td3);
@@ -75,7 +75,8 @@ function updInfo(num) {
     function del(obj){
         var flag=confirm("确定要删除吗？");
         if (flag){
-            var id=$(obj).parent().parent().children().html();
+            var id=$($(obj).parent().parent().children("td").get(0)).text();
+            alert(id)
             console.log(id);
             $.post("del",{id:id},function (data) {
                 if (data) {
