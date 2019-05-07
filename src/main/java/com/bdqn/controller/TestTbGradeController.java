@@ -37,13 +37,14 @@ public class TestTbGradeController {
     }
 
     @PostMapping("/getById")
-    public TestTbGrade getById(Integer id){
+    public TestTbGrade getById(Integer id) {
         return testTbGradeService.getById(id);
-
+    }
 
     @PostMapping("/select")
-    public List<TestTbGrade> list(){
+    public List<TestTbGrade> list() {
         return testTbGradeService.list();
+    }
 
     @PostMapping("/addOne")
     public boolean addOne(TestTbGrade testTbGrade){

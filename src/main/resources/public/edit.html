@@ -12,7 +12,7 @@
             <table border="0" cellspacing="10" cellpadding="" width="400">
                 <tr>
                     <td>学号：</td>
-                    <td><input type="text" id="id" name="id" value="" size="30" /></td>
+                    <td><input type="text" id="id" name="id" value="" size="30" readonly/></td>
                 </tr>
                 <tr>
                     <td>姓名：</td>
@@ -36,13 +36,17 @@
             </table>
             <input type="submit" value="提交" id="btn" />
             <input type="reset" value="重置" />
+            <input type="button" value="返回" onclick="btnReturn()" />
         </form>
     </div>
 </body>
-<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
 <script src="js/moment.min.js"></script>
 <script src="js/normal.js"></script>
 <script>
+    function btnReturn(){
+        location="index.html";
+    }
     $(function () {
         init();
     })
@@ -56,7 +60,7 @@
             data:{"id":id},
             type:"POST",
             success:function (data) {
-                alert("查找成功");
+                // alert("查找成功");
                 $("#userName").val(data.userName);
                 $("#course").val(data.course);
                 $("#score").val(data.score);
@@ -97,7 +101,7 @@
         $.ajax({
             url:"/updateById",
             dataType:"text",
-            data:{"id":id,"user_name":userName,"course":course,"score":score},
+            data:{"id":id,"userName":userName,"course":course,"score":score},
             type:"POST",
             success:function (data) {
                 alert("更新成功！");
