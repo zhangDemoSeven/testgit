@@ -4,10 +4,12 @@ package com.bdqn.controller;
 import com.bdqn.pojo.TestTbGrade;
 import com.bdqn.service.TestTbGradeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -28,6 +30,7 @@ public class TestTbGradeController {
         return testTbGradeService.removeById(id);
     }
 
+
     @PostMapping("/updateById")
     public boolean updateById(TestTbGrade testTbGrade){
         return testTbGradeService.updateById(testTbGrade);
@@ -36,5 +39,14 @@ public class TestTbGradeController {
     @PostMapping("/getById")
     public TestTbGrade getById(Integer id){
         return testTbGradeService.getById(id);
+
+
+    @PostMapping("/select")
+    public List<TestTbGrade> list(){
+        return testTbGradeService.list();
+
+    @PostMapping("/addOne")
+    public boolean addOne(TestTbGrade testTbGrade){
+        return testTbGradeService.save(testTbGrade);
     }
 }
