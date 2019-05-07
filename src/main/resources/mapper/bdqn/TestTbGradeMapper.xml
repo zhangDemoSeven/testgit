@@ -14,5 +14,4 @@
     <sql id="Base_Column_List">
         ID, USER_NAME, COURSE, SCORE
     </sql>
-
 </mapper>
